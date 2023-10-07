@@ -1,5 +1,5 @@
 import pickle
-from flask import Flask, request, jsonify,render_template
+from flask import Flask, request, jsonify,render_template,url_for
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
@@ -14,7 +14,7 @@ standardscaler = pickle.load(open('model/scaler.pkl','rb'))
 
 @app.route("/")
 def Index():
-    return render_template('index.html')
+    return render_template('home.html')
 
 @app.route('/predictdata', methods=['GET','POST'])
 def predict_datapoint():
